@@ -18,7 +18,6 @@ export class EmailService {
             service: 'Gmail',
             auth: {
                 user: 'cook100873@gmail.com', // TODO: config
-                pass: 'hzseewvfcyahtrrf' // TODO: config
             }
         });
     }
