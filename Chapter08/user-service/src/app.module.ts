@@ -23,11 +23,11 @@ import { UsersModule } from './users/users.module';
       database: 'test',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: process.env.DATABASE_SYNCHRONIZE === 'true',
-      // migrations: [__dirname + '/**/migrations/*.js'],
-      // migrationsTableName: 'migrations',
+      migrations: [__dirname + '/**/migrations/*.js'],
+      migrationsTableName: 'migrations',
     }),
   ],
-  // controllers: [],
-  // providers: [],
+  controllers: [],
+  providers: [],
 })
 export class AppModule { }
