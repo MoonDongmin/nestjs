@@ -5,7 +5,7 @@ import { ConfigType } from '@nestjs/config';
 
 interface User {
   id: string;
-  name: string;며
+  name: string;
   email: string;
 }
 
@@ -18,25 +18,25 @@ export class AuthService {
   login(user: User) {
     const payload = { ...user };
 
-    return jwt.sign(payload, this.config.jwtSecret, {
+    return jwt.sign(payload, 'test', {
       expiresIn: '1d',
       audience: 'example.com',
       issuer: 'example.com',
     });
   }
 
-  verify(jwtString: string) {
-    try {
-      const payload = jwt.verify(jwtString, this.config.jwtSecret) as (jwt.JwtPayload | string) & User;
-
-      const { id, email } = payload;
-
-      return {
-        userId: id,
-        email,
-      }
-    } catch (e) {
-      throw new UnauthorizedException()
-    }
-  }
+  // verify(jwtString: string) {
+  //   try {
+  //     const payload = jwt.verify(jwtString, this.config.jwtSecret) as (jwt.JwtPayload | string) & User;
+  //
+  //     const { id, email } = payload;
+  //
+  //     return {
+  //       userId: id,
+  //       email,
+  //     }
+  //   } catch (e) {
+  //     throw new UnauthorizedException()
+  //   }
+  // }
 }
