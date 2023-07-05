@@ -1,0 +1,5 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all"
+}
+// 코드의 형식을 맞춰줌, 코드 포맷터 역할
