@@ -33,4 +33,10 @@ export class BoardsService {
     this.boards= this.boards.filter((board) => board.id !== id);
     //filter 를 사용해서 같지 않은 것만 남기고 같은거는 지우는 방식. 리턴값을 안주기에 void
   }
+
+  updateBoardStatus(id:string, status:BoardStatus){
+    const board = this.getBoardById(id);
+    board.status = status;
+    return board;
+  }
 }
