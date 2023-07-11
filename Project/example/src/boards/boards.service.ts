@@ -25,7 +25,12 @@ export class BoardsService {
     return board;
   }
 
-  getBoardById(id:string):Board{
-    return this.boards.find((board)=> board.id ===id);
+  getBoardById(id: string): Board {
+    return this.boards.find((board) => board.id === id);
+  }
+
+  deleteBoard(id: string): void {
+    this.boards= this.boards.filter((board) => board.id !== id);
+    //filter 를 사용해서 같지 않은 것만 남기고 같은거는 지우는 방식. 리턴값을 안주기에 void
   }
 }
