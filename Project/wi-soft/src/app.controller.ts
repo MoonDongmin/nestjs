@@ -7,7 +7,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    console.log('접속 성공');
     return this.appService.getHello();
   }
 }
