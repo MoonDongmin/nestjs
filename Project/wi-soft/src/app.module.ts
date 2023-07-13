@@ -24,7 +24,7 @@ import { UserEntity } from "./users/entities/user.entity";
       port: 3305,
       username: process.env.DATABASE_USERNAME,//'project',
       password: process.env.DATABASE_PASSWORD,//'test',
-      database: "project",
+      database: "test",
       entities: [UserEntity],
       synchronize: process.env.DATABASE_SYNCHRONIZE === "true",
     })
