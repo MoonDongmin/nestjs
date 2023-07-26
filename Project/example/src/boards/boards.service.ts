@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Board, BoardStatus } from './boards.model';
 import { v1 as uuid } from 'uuid';
 import { CreateBoardsDto } from './dto/create-boards.dto';
@@ -26,15 +26,21 @@ export class BoardsService {
   }
 
   getBoardById(id: string): Board {
-    return this.boards.find((board) => board.id === id);
+    const found = this.boards.find((board) => board.id === id);
+    if (!found) {
+      throw new NotFoundException(`Can't not Board with id ${id}`);
+    }
+    return found;
   }
 
   deleteBoard(id: string): void {
-    this.boards= this.boards.filter((board) => board.id !== id);
+    const found = this.getBoardById(id);
+    this.boards = this.boards.filter((board) => board.id !== found.id);
+
     //filter 를 사용해서 같지 않은 것만 남기고 같은거는 지우는 방식. 리턴값을 안주기에 void
   }
 
-  updateBoardStatus(id:string, status:BoardStatus){
+  updateBoardStatus(id: string, status: BoardStatus) {
     const board = this.getBoardById(id);
     board.status = status;
     return board;
