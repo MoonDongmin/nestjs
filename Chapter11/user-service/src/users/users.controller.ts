@@ -37,6 +37,7 @@ export class UsersController {
     await this.usersService.createUser(name, email, password);
   }
 
+
   private printLoggerServiceLog(dto) {
     try {
       throw new InternalServerErrorException('test');
