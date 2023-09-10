@@ -1,4 +1,7 @@
 import {
+    join,
+} from "path";
+import {
     Module,
 } from "@nestjs/common";
 
@@ -21,6 +24,9 @@ import {
 } from './common/logger/logger.module';
 
 import appConfig from "@main/configurer/app.config";
+import {
+    ServeStaticModule, 
+} from "@nestjs/serve-static";
 
 @Module({
     imports: [
@@ -33,6 +39,9 @@ import appConfig from "@main/configurer/app.config";
         }),
         RdbmsModule,
         LoggerModule,
+        ServeStaticModule.forRoot({
+            rootPath: join(process.cwd(), "src/resource/static"),
+        }),
     ],
     controllers: [AppController,],
     providers: [AppService,],

@@ -1,5 +1,11 @@
 import {
-    Controller, Get, Logger,
+    Response, 
+} from "express";
+import {
+    join,
+} from "path";
+import {
+    Controller, Get, Logger, Res,
 } from "@nestjs/common";
 import {
     AppService, 
@@ -15,9 +21,11 @@ export class AppController {
   }
 
   @Get()
-  getHello(
-  ): string {
-      return this.appService.getHello();
+  getIndex(
+    @Res() response: Response,
+  ): void {
+      response
+          .sendFile(join(process.cwd(), "src/resource/static/index.html"));
   }
 
   @Get("/config")
