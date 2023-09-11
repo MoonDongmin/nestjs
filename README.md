@@ -3,7 +3,9 @@
 ### 📌 Notion을 통해서 개인 공부한 것을 정리함
 ### 📌 책은 "NestJs로 배우는 백엔드 프로그래밍"으로 정리
 <div align="center">
-<img src="https://image.yes24.com/goods/115850682/XL" width=200>
+
+<img width=200 src="https://image.yes24.com/goods/115850682/XL" >
+
 </div>
 
 ---
