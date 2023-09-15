@@ -1,0 +1,35 @@
+###
+POST localhost:13000/accounts
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Gildong Hong",
+  "email": "water@naver.com"
+}
+
+> {%
+client.global.set("id",response.body.id);
+%}
+
+###
+GET localhost:13000/accounts
+Accept: application/json
+
+###
+GET localhost:13000/accounts/{{id}}
+Accept: application/json
+
+###
+PATCH localhost:13000/accounts/{{id}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "123@naver.com"
+}
+
+###
+DELETE localhost:13000/accounts/{{id}}
+Accept: application/json
+

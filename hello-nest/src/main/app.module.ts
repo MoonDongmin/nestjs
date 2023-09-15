@@ -1,6 +1,7 @@
 import {
     join,
 } from "path";
+
 import {
     Module,
 } from "@nestjs/common";
@@ -14,26 +15,33 @@ import {
 } from "@main/app.service";
 
 import {
-    ConfigModule, 
+    ConfigModule,
 } from "@nestjs/config";
+
 import {
-    RdbmsModule, 
-} from './rdbms/rdbms.module';
+    RdbmsModule,
+} from "@main/rdbms/rdbms.module";
+
 import {
-    LoggerModule, 
-} from './common/logger/logger.module';
+    LoggerModule,
+} from "@main/common/logger/logger.module";
 
 import appConfig from "@main/configurer/app.config";
+
 import {
-    ServeStaticModule, 
+    ServeStaticModule,
 } from "@nestjs/serve-static";
+
+import {
+    AccountModule, 
+} from "@main/account/account.module";
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             cache: true,
             isGlobal: true,
-            load:[
+            load: [
                 appConfig,
             ],
         }),
@@ -42,6 +50,7 @@ import {
         ServeStaticModule.forRoot({
             rootPath: join(process.cwd(), "src/resource/static"),
         }),
+        AccountModule,
     ],
     controllers: [AppController,],
     providers: [AppService,],

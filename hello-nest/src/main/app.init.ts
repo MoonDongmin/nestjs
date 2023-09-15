@@ -33,6 +33,7 @@ async function bootstrap(): Promise<void> {
         bufferLogs: true,
     // httpsOptions: httpsOptions,
     });
+
     const { host, port, } = app.get<ConfigType<typeof appConfig>>(appConfig.KEY);
 
     app.useLogger(app.get(LoggerService));
