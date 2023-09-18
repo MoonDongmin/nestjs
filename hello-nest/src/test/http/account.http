@@ -5,12 +5,22 @@ Content-Type: application/json
 
 {
   "name": "Gildong Hong",
+  "password": "1234",
   "email": "water@naver.com"
 }
 
 > {%
 client.global.set("id",response.body.id);
 %}
+
+###
+POST localhost:13000/accounts/login{{id}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "password": "123"
+}
 
 ###
 GET localhost:13000/accounts
