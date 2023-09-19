@@ -8,7 +8,7 @@ import {
     Account,
 } from "@prisma/client";
 
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from "bcrypt";
 
 @Injectable()
 export class AccountService {
@@ -18,8 +18,16 @@ export class AccountService {
     }
 
     async create(
-        account: Account,
+        account: {
+      email: string,
+      name: string,
+      password: string,
+    },
     ): Promise<Account> {
+        account.password = await bcrypt.hash(account.password, 10);
+
+        console.log(account);
+
         return await this.prisma.account.create({
             data: account,
         });
@@ -68,22 +76,23 @@ export class AccountService {
     async login(
         id: string,
         password: string,
-    ):Promise<Account> {
+    ): Promise<Account> {
 
         const user = await this.prisma.account.findUnique({
             where: {
                 id,
             },
         });
-
         if (!user) {
             throw new UnauthorizedException("해당하는 아이디가 없습니다. 회원가입을 진행해 주세요.");
         }
-
-        if (user.password === password) {
-            return user;
-        } else {
+        const validatePassword = await bcrypt.compare(password, user.password);
+        if (!validatePassword) {
             throw new UnauthorizedException("아이디와 비밀번호를 확인해주세요.");
+        } else {
+            console.log(user);
+
+            return user;
         }
     }
 }
