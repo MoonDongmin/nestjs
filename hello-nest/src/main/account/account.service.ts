@@ -74,17 +74,17 @@ export class AccountService {
     }
 
     async login(
-        id: string,
+        email: string,
         password: string,
     ): Promise<Account> {
 
         const user = await this.prisma.account.findUnique({
             where: {
-                id,
+                email,
             },
         });
         if (!user) {
-            throw new UnauthorizedException("해당하는 아이디가 없습니다. 회원가입을 진행해 주세요.");
+            throw new UnauthorizedException("해당하는 이메일이 없습니다. 회원가입을 진행해 주세요.");
         }
         const validatePassword = await bcrypt.compare(password, user.password);
         if (!validatePassword) {
