@@ -14,12 +14,13 @@ client.global.set("id",response.body.id);
 %}
 
 ###
-POST localhost:13000/accounts/login{{id}}
+POST localhost:13000/accounts/login
 Accept: application/json
 Content-Type: application/json
 
 {
-  "password": "1233"
+  "id": "650ced54bcf87c36db74f629",
+  "password": "123"
 }
 
 ###

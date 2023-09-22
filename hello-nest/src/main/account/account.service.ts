@@ -83,14 +83,18 @@ export class AccountService {
                 id,
             },
         });
+
         if (!user) {
             throw new UnauthorizedException("해당하는 아이디가 없습니다. 회원가입을 진행해 주세요.");
         }
+
         const validatePassword = await bcrypt.compare(password, user.password);
         if (!validatePassword) {
-            throw new UnauthorizedException("아이디와 비밀번호를 확인해주세요.");
+            console.log("회원가입 실패");
+            throw new UnauthorizedException("비밀번호를 확인해주세요.");
         } else {
-            console.log(user);
+
+            console.log("회원가입 성공");
 
             return user;
         }

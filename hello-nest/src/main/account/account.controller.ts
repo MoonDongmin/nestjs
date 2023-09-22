@@ -31,15 +31,16 @@ export class AccountController {
         return await this.accountService.create(account);
     }
 
-  @Post("/login:id")
+  @Post("/login")
   async login(
-    @Param("id") id: string,
+    //@Param("id") id: string,
     @Body()
-        account:{
-        password: string,
-  },
+        account: {
+      id: string
+      password: string,
+    },
   ): Promise<AccountModel> {
-      return await this.accountService.login(id,account.password);
+      return await this.accountService.login(account.id, account.password);
   }
 
   @Get("")
