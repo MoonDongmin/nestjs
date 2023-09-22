@@ -32,7 +32,19 @@ export class AccountController {
     }
 
   @Post("/login")
-  async login(
+  async loginByEmail(
+    //@Param("id") id: string,
+    @Body()
+        account: {
+      email: string
+      password: string,
+    },
+  ): Promise<AccountModel> {
+      return await this.accountService.loginByEmail(account.email, account.password);
+  }
+
+  @Post("/loginId")
+  async loginById(
     //@Param("id") id: string,
     @Body()
         account: {
@@ -40,7 +52,7 @@ export class AccountController {
       password: string,
     },
   ): Promise<AccountModel> {
-      return await this.accountService.login(account.id, account.password);
+      return await this.accountService.loginById(account.id, account.password);
   }
 
   @Get("")

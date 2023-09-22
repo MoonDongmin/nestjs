@@ -19,8 +19,18 @@ Accept: application/json
 Content-Type: application/json
 
 {
+  "email": "water@naver.com",
+  "password": "1234"
+}
+
+###
+POST localhost:13000/accounts/loginId
+Accept: application/json
+Content-Type: application/json
+
+{
   "id": "650ced54bcf87c36db74f629",
-  "password": "123"
+  "password": "1234"
 }
 
 ###
