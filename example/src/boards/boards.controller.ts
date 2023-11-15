@@ -9,7 +9,7 @@ import {
   Req,
 } from '@nestjs/common';
 import { BoardsService } from './boards.service';
-import { Board, BoardStatus } from "./boards.model";
+import { Board, BoardStatus } from './boards.model';
 import { request, response } from 'express';
 import { CreateBoardsDto } from './dto/create-boards.dto';
 
@@ -39,9 +39,9 @@ export class BoardsController {
 
   @Patch('/:id/status')
   updateBoardStatus(
-    @Param('id') id:string,
-    @Param('status') status:BoardStatus,
-  ){
-    return this.boardsService.updateBoardStatus(id,status);
+    @Param('id') id: string,
+    @Param('status') status: BoardStatus,
+  ) {
+    return this.boardsService.updateBoardStatus(id, status);
   }
 }
