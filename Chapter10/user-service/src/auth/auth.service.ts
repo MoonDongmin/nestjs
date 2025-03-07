@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import authConfig from 'src/config/authConfig';
-import { ConfigType } from '@nestjs/config';
+import { ConfigType } from '@nestjs/configs';
 
 interface User {
   id: string;
@@ -27,7 +27,7 @@ export class AuthService {
 
   // verify(jwtString: string) {
   //   try {
-  //     const payload = jwt.verify(jwtString, this.config.jwtSecret) as (jwt.JwtPayload | string) & User;
+  //     const payload = jwt.verify(jwtString, this.configs.jwtSecret) as (jwt.JwtPayload | string) & User;
   //
   //     const { id, email } = payload;
   //

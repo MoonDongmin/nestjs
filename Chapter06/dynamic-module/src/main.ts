@@ -6,7 +6,7 @@ import * as process from "process";
 
 // dotenv를 활용해서 동적 모듈 만드는 방법
 
-// dotenv.config({
+// dotenv.configs({
 //   path: path.resolve(
 //       (process.env.NODE_ENV === 'production') ? '.production.env'
 //           :(process.env.NODE_ENV === 'stage') ? '.stage.env' : '.development.env'

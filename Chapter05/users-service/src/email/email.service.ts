@@ -17,14 +17,14 @@ export class EmailService {
         this.transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: 'cook100873@gmail.com', // TODO: config
+                user: 'cook100873@gmail.com', // TODO: configs
 
             }
         });
     }
 
     async sendMemberJoinVerification(emailAddress: string, signupVerifyToken: string) {
-        const baseUrl = 'http://localhost:3000'; // TODO: config
+        const baseUrl = 'http://localhost:3000'; // TODO: configs
 
         const url = `${baseUrl}/users/email-verify?signupVerifyToken=${signupVerifyToken}`;
 

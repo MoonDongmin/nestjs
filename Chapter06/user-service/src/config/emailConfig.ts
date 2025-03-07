@@ -1,4 +1,4 @@
-import { registerAs } from "@nestjs/config";
+import { registerAs } from "@nestjs/configs";
 
 export default registerAs('email', () => ({
     service: process.env.EMAIL_SERVICE,

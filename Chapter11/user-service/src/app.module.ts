@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/configs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import authConfig from './config/authConfig';
 import emailConfig from './config/emailConfig';

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/configs';
 import emailConfig from './config/emailConfig';
 import { validationSchema } from './config/validationSchema';
 import { UsersModule } from './users/users.module';

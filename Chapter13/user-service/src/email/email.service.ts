@@ -3,7 +3,7 @@ import * as nodemailer from 'nodemailer';
 
 import { Inject, Injectable } from '@nestjs/common';
 import emailConfig from 'src/config/emailConfig';
-import { ConfigType } from '@nestjs/config';
+import { ConfigType } from '@nestjs/configs';
 
 interface EmailOptions {
   to: string;

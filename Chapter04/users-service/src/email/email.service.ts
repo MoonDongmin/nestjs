@@ -18,13 +18,13 @@ export class EmailService {
             service: 'Gmail',
             auth: {
                 user: 'cook100873@gmail.com',
-                pass:'iakwtqtgrsvgryyu'// TODO: config
+                pass:'iakwtqtgrsvgryyu'// TODO: configs
             }
         });
     }
 
     async sendMemberJoinVerification(emailAddress: string, signupVerifyToken: string) {
-        const baseUrl = 'http://localhost:3000'; // TODO: config
+        const baseUrl = 'http://localhost:3000'; // TODO: configs
 
         const url = `${baseUrl}/users/email-verify?signupVerifyToken=${signupVerifyToken}`;
 

@@ -28,7 +28,7 @@ export class AppController {
           .sendFile(join(process.cwd(), "src/resource/static/index.html"));
   }
 
-  @Get("/config")
+  @Get("/configs")
   getConfig(): AppEnvironment {
       const{ host,port, } = this.appService.getConfig();
 
